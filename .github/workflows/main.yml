@@ -1,7 +1,7 @@
 name: run TDD java JUnit 5 test
 on: 
   push:
-    branches: [ main ]
+    branches: [ master ]
     
 jobs:
   run_tests:
