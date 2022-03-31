@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class ResultTest {
 
     int points;
@@ -77,9 +76,21 @@ public class ResultTest {
     }
 
     @Test
-    @DisplayName("Check method if student passed the course")
-    public void checkPassCourse() {
-        assertTrue(Result.passedCourse(70));
+    @DisplayName("test printout 60/100 gives 60 percent")
+    public void checkPrintPercentage60(){
+        assertEquals("Your percentage is: 60", Result.printPercentage(60, maxPoints));
+    }
+
+    @Test
+    @DisplayName("Check printout if 60 percent gives G")
+    public void checkPrintResult(){
+        assertEquals("Your result is: G", Result.printResult(60,maxPoints));
+    }
+
+    @Test
+    @DisplayName("Checks Printout if 60 percent gives C")
+    public void checkPrintConvertABC(){
+        assertEquals("In the new scoring that would be: C", Result.printNewScore(60,maxPoints));
     }
 
 
@@ -92,6 +103,12 @@ public class ResultTest {
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Check if course failed with 30%")
+    public void checkCoursePassed(){
+        assertFalse(Result.passedCourse(30));
     }
 }
 
