@@ -80,7 +80,11 @@ public class ResultTest {
     public void checkPrintPercentage60(){
         assertEquals("Your percentage is: 60", Result.printPercentage(60, maxPoints));
     }
-
+    @Test
+    @DisplayName("makes sure IG is not converted to A")
+    public void convertIGtoA(){
+        assertNotEquals("A", Result.convertABC("IG"));
+    }
     @Test
     @DisplayName("Check printout if 60 percent gives G")
     public void checkPrintResult(){
@@ -107,8 +111,14 @@ public class ResultTest {
 
     @Test
     @DisplayName("Check if course failed with 30%")
-    public void checkCoursePassed(){
+    public void checkCourseFailed(){
         assertFalse(Result.passedCourse(30));
+    }
+
+    @Test
+    @DisplayName("Check if course passed with 80%")
+    public void checkCoursePassed(){
+        assertTrue(Result.passedCourse(80));
     }
 }
 
