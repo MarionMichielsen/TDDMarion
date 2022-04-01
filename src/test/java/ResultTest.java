@@ -24,7 +24,7 @@ public class ResultTest {
     @Test
     @DisplayName("Checks if 90% gives MVG")
     public void checkIf90givesMVG() {
-        assertEquals("MVG", Result.getResult(90));
+        assertEquals("VG", Result.getResult(90));
     }
 
     @Test
